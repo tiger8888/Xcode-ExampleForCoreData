@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-187" y="67"/>
         </scene>
-        <!--View Controller-->
+        <!--Hero List Controller-->
         <scene sceneID="hGl-72-jD1">
             <objects>
-                <viewController id="HYB-0i-phf" sceneMemberID="viewController">
+                <viewController id="HYB-0i-phf" customClass="TUHeroListController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eNW-oJ-mSw"/>
                         <viewControllerLayoutGuide type="bottom" id="8xJ-db-1eh"/>
