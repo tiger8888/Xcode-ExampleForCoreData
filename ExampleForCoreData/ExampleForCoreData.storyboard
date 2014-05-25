@@ -78,8 +78,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hXl-6w-FWg"/>
+                    <navigationItem key="navigationItem" id="hXl-6w-FWg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Inj-0i-JQg">
+                            <connections>
+                                <action selector="addHero:" destination="HYB-0i-phf" id="bKW-IH-OdF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Inj-0i-JQg" id="CwH-48-hp1"/>
                         <outlet property="heroTabBar" destination="G4m-qI-ANp" id="wBs-xf-On8"/>
                         <outlet property="heroTableView" destination="4El-RA-fJV" id="uEf-vj-7kP"/>
                     </connections>
