@@ -36,7 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="rT1-IR-8h1" detailTextLabel="2cu-Qe-D3E" style="IBUITableViewCellStyleSubtitle" id="bID-EA-2Uh">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeroListCell" textLabel="rT1-IR-8h1" detailTextLabel="2cu-Qe-D3E" style="IBUITableViewCellStyleSubtitle" id="bID-EA-2Uh">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bID-EA-2Uh" id="AUv-p3-FP8">
