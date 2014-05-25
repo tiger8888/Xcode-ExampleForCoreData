@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *heroTableView;
+@property (weak, nonatomic) IBOutlet UITabBar *heroTabBar;
 
 @end
