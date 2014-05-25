@@ -22,6 +22,7 @@
 		DC24FE4A193226D700526327 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC24FE2E193226D700526327 /* CoreData.framework */; };
 		DC24FE52193226D800526327 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC24FE50193226D800526327 /* InfoPlist.strings */; };
 		DC24FE54193226D800526327 /* ExampleForCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC24FE53193226D800526327 /* ExampleForCoreDataTests.m */; };
+		DC24FE5E1932280900526327 /* ExampleForCoreData.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC24FE5D1932280900526327 /* ExampleForCoreData.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		DC24FE4F193226D800526327 /* ExampleForCoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleForCoreDataTests-Info.plist"; sourceTree = "<group>"; };
 		DC24FE51193226D800526327 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC24FE53193226D800526327 /* ExampleForCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleForCoreDataTests.m; sourceTree = "<group>"; };
+		DC24FE5D1932280900526327 /* ExampleForCoreData.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExampleForCoreData.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				DC24FE39193226D700526327 /* TUAppDelegate.h */,
 				DC24FE3A193226D700526327 /* TUAppDelegate.m */,
+				DC24FE5D1932280900526327 /* ExampleForCoreData.storyboard */,
 				DC24FE3F193226D700526327 /* Images.xcassets */,
 				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC24FE31193226D700526327 /* Supporting Files */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC24FE35193226D700526327 /* InfoPlist.strings in Resources */,
+				DC24FE5E1932280900526327 /* ExampleForCoreData.storyboard in Resources */,
 				DC24FE40193226D700526327 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +452,7 @@
 				DC24FE59193226D800526327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC24FE5A193226D800526327 /* Build configuration list for PBXNativeTarget "ExampleForCoreDataTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +461,7 @@
 				DC24FE5C193226D800526327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
