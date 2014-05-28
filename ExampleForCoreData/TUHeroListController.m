@@ -163,6 +163,28 @@
     _fetchedResultsController.delegate = self;
     return _fetchedResultsController;
 }
+#pragma mark - fetched results controller delegate methods
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.heroTableView beginUpdates];
+}
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.heroTableView endUpdates];
+}
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.heroTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.heroTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+        case NSFetchedResultsChangeMove:
+        default:
+            break;
+    }
+}
 
 - (IBAction)addHero:(id)sender {
 }
