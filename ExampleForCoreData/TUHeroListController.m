@@ -7,6 +7,7 @@
 //
 
 #import "TUHeroListController.h"
+#import "TUAppDelegate.h"
 
 @interface TUHeroListController ()
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
@@ -113,6 +114,55 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - FetchedResultsController Property
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    TUAppDelegate *appDelegate = (TUAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Hero" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSUInteger tabIndex = [self.heroTabBar.items indexOfObject:self.heroTabBar.selectedItem];
+    if (tabIndex == NSNotFound) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        tabIndex = [defaults integerForKey:kSelectedTabDefaultsKey];
+    }
+    
+    NSString *sectionKey = nil;
+    switch (tabIndex) {
+        case kByName: {
+            NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+            NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"secretIdentity" ascending:YES];
+            NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, sortDescriptor2, nil];
+            [fetchRequest setSortDescriptors:sortDescriptors];
+            sectionKey = @"name";
+            break;
+        }
+            
+        case KBySecretIdentity: {
+            NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"secretIdentity" ascending:YES];
+            NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+            NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, sortDescriptor2, nil];
+            [fetchRequest setSortDescriptors:sortDescriptors];
+            sectionKey = @"secretIdentity";
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:sectionKey cacheName:@"Hero"];
+    _fetchedResultsController.delegate = self;
+    return _fetchedResultsController;
+}
 
 - (IBAction)addHero:(id)sender {
 }
