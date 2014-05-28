@@ -31,6 +31,20 @@
     NSInteger selectedTab = [defaults integerForKey:kSelectedTabDefaultsKey];
     UITabBarItem *item = [self.heroTabBar.items objectAtIndex:selectedTab];
     [self.heroTabBar setSelectedItem:item];
+    
+    NSError *error = nil;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"Error loading data",
+                                                              @"Error loading data")
+                              message:[NSString stringWithFormat:NSLocalizedString(@"Error was: %@, quitting.",
+                                                                                   @"Error was: %@, quitting."),
+                                       [error localizedDescription]]
+                              delegate:self
+                              cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
