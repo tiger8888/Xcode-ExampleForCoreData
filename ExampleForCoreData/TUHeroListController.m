@@ -39,32 +39,63 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addHero:(id)sender {
+    NSManagedObjectContext *managedObjectContent = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContent];
+    
+    NSError *error = nil;
+    if (![managedObjectContent save:&error]) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"Error saving entity",
+                                                              @"Error saving entity")
+                              message:[NSString stringWithFormat:NSLocalizedString(@"Error was: %@, quitting.",
+                                                                                   @"Error was: %@, quitting."),
+                                       [error localizedDescription]]
+                              delegate:self
+                              cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    self.addButton.enabled = !editing;//编辑状态时禁用新增
+    [self.heroTableView setEditing:editing animated:animated];//是表格式图变为编辑状态
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [[self.fetchedResultsController sections] count];
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    static NSString *cellIdentifier = @"HeroListCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     // Configure the cell...
-    
+    NSManagedObject *aHero = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSInteger tab = [self.heroTabBar.items indexOfObject:self.heroTabBar.selectedItem];
+    switch (tab) {
+        case kByName:
+            cell.textLabel.text = [aHero valueForKey:@"name"];
+            cell.detailTextLabel.text = [aHero valueForKey:@"secretIdentity"];
+            break;
+        case KBySecretIdentity:
+            cell.textLabel.text = [aHero valueForKey:@"secretIdentity"];
+            cell.detailTextLabel.text = [aHero valueForKey:@"name"];
+            break;
+    }
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -75,18 +106,31 @@
 }
 */
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSManagedObjectContext *managedObjectContext = [self.fetchedResultsController managedObjectContext];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        NSError *error;
+        if (![managedObjectContext save:&error]) {
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:NSLocalizedString(@"Error saving entity",
+                                                                  @"Error saving entity")
+                                  message:[NSString stringWithFormat:NSLocalizedString(@"Error was: %@, quitting.",
+                                                                                       @"Error was: %@, quitting."),
+                                           [error localizedDescription]]
+                                  delegate:self
+                                  cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
+                                  otherButtonTitles:nil];
+            [alert show];
+        }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -211,29 +255,5 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSUInteger tabIndex = [tabBar.items indexOfObject:item];
     [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
-}
-- (IBAction)addHero:(id)sender {
-    NSManagedObjectContext *managedObjectContent = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContent];
-    
-    NSError *error = nil;
-    if (![managedObjectContent save:&error]) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:NSLocalizedString(@"Error saving entity",
-                                                                                 @"Error saving entity")
-                              message:[NSString stringWithFormat:NSLocalizedString(@"Error was: %@, quitting.",
-                                                                                   @"Error was: %@, quitting."),
-                                       [error localizedDescription]]
-                              delegate:self
-                              cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-}
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    self.addButton.enabled = !editing;//编辑状态时禁用新增
-    [self.heroTableView setEditing:editing animated:animated];//是表格式图变为编辑状态
 }
 @end
