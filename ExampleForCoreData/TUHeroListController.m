@@ -202,8 +202,6 @@
     }
 }
 
-- (IBAction)addHero:(id)sender {
-}
 #pragma mark - alert view delegate methods
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     exit(-1);//仅仅是退出
@@ -213,5 +211,29 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSUInteger tabIndex = [tabBar.items indexOfObject:item];
     [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
+}
+- (IBAction)addHero:(id)sender {
+    NSManagedObjectContext *managedObjectContent = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContent];
+    
+    NSError *error = nil;
+    if (![managedObjectContent save:&error]) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"Error saving entity",
+                                                                                 @"Error saving entity")
+                              message:[NSString stringWithFormat:NSLocalizedString(@"Error was: %@, quitting.",
+                                                                                   @"Error was: %@, quitting."),
+                                       [error localizedDescription]]
+                              delegate:self
+                              cancelButtonTitle:NSLocalizedString(@"Aw, Nuts", @"Aw, Nuts")
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    self.addButton.enabled = !editing;//编辑状态时禁用新增
+    [self.heroTableView setEditing:editing animated:animated];//是表格式图变为编辑状态
 }
 @end
