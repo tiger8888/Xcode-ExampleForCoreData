@@ -64,6 +64,21 @@
     [self.heroTableView setEditing:editing animated:animated];//是表格式图变为编辑状态
 }
 
+#pragma mark - tab bar delegate methods
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger tabIndex = [tabBar.items indexOfObject:item];
+    [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
+    
+    [NSFetchedResultsController deleteCacheWithName:@"Hero"];
+    _fetchedResultsController.delegate = nil;
+    _fetchedResultsController = nil;
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        NSLog(@"Error performing fetch: %@", [error localizedDescription]);
+    }
+    [self.heroTableView reloadData];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -249,11 +264,5 @@
 #pragma mark - alert view delegate methods
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     exit(-1);//仅仅是退出
-}
-#pragma mark - tab bar delegate methods
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSUInteger tabIndex = [tabBar.items indexOfObject:item];
-    [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
 }
 @end
