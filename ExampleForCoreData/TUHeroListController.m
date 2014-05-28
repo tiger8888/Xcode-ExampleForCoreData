@@ -24,7 +24,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UITabBarItem *item = [self.heroTabBar.items objectAtIndex:0];
+    //Select the Tab Bar button
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger selectedTab = [defaults integerForKey:kSelectedTabDefaultsKey];
+    UITabBarItem *item = [self.heroTabBar.items objectAtIndex:selectedTab];
     [self.heroTabBar setSelectedItem:item];
 }
 
@@ -111,5 +114,12 @@
 */
 
 - (IBAction)addHero:(id)sender {
+}
+
+#pragma mark - tab bar delegate methods
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger tabIndex = [tabBar.items indexOfObject:item];
+    [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
 }
 @end

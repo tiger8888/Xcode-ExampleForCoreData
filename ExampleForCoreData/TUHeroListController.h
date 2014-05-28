@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#define kSelectedTabDefaultsKey @"Selected Tab"
+
+enum {
+    kByName,
+    KBySecretIdentity
+};
+
+@interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *heroTableView;
 @property (weak, nonatomic) IBOutlet UITabBar *heroTabBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;

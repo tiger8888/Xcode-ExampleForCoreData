@@ -74,6 +74,9 @@
                                     <tabBarItem title="By Name" image="name_icon.png" id="2sI-0j-rqQ"/>
                                     <tabBarItem title="By Secret Identity" image="secret_icon.png" id="ofi-Lo-nGr"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="HYB-0i-phf" id="dCA-Su-9iK"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
