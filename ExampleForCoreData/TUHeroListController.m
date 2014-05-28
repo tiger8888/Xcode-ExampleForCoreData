@@ -195,4 +195,8 @@
     NSUInteger tabIndex = [tabBar.items indexOfObject:item];
     [defaults setInteger:tabIndex forKey:kSelectedTabDefaultsKey];
 }
+#pragma mark - alert view delegate methods
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    exit(-1);//功能仅仅是退出程序
+}
 @end
