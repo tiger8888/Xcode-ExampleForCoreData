@@ -204,7 +204,10 @@
 
 - (IBAction)addHero:(id)sender {
 }
-
+#pragma mark - alert view delegate methods
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    exit(-1);//仅仅是退出
+}
 #pragma mark - tab bar delegate methods
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
