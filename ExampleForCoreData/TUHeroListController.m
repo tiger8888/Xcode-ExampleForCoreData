@@ -9,10 +9,11 @@
 #import "TUHeroListController.h"
 
 @interface TUHeroListController ()
-
+@property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation TUHeroListController
+@synthesize fetchedResultsController = _fetchedResultsController;
 
 - (void)viewDidLoad
 {

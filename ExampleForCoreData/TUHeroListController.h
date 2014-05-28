@@ -15,7 +15,7 @@ enum {
     KBySecretIdentity
 };
 
-@interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate>
+@interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *heroTableView;
 @property (weak, nonatomic) IBOutlet UITabBar *heroTabBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
