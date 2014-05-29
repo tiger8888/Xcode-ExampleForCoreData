@@ -72,13 +72,14 @@
         [alert show];
     }
 }
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
     [super setEditing:editing animated:animated];
-    self.addButton.enabled = !editing;//编辑状态时禁用新增
-    [self.heroTableView setEditing:editing animated:animated];//是表格式图变为编辑状态
+    self.addButton.enabled = !editing;
+    [self.heroTableView setEditing:editing animated:animated];
 }
 
-#pragma mark - tab bar delegate methods
+#pragma mark - Tab bar delegate methods
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSUInteger tabIndex = [tabBar.items indexOfObject:item];
@@ -118,7 +119,7 @@
             cell.textLabel.text = [aHero valueForKey:@"name"];
             cell.detailTextLabel.text = [aHero valueForKey:@"secretIdentity"];
             break;
-        case KBySecretIdentity:
+        case kBySecretIdentity:
             cell.textLabel.text = [aHero valueForKey:@"secretIdentity"];
             cell.detailTextLabel.text = [aHero valueForKey:@"name"];
             break;
@@ -155,7 +156,6 @@
                                   otherButtonTitles:nil];
             [alert show];
         }
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -219,7 +219,7 @@
             break;
         }
             
-        case KBySecretIdentity: {
+        case kBySecretIdentity: {
             NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"secretIdentity" ascending:YES];
             NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
             NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor1, sortDescriptor2, nil];
@@ -236,7 +236,7 @@
     _fetchedResultsController.delegate = self;
     return _fetchedResultsController;
 }
-#pragma mark - fetched results controller delegate methods
+#pragma mark - Fetched results controller delegate methods
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.heroTableView beginUpdates];
 }
@@ -275,7 +275,7 @@
     }
 }
 
-#pragma mark - alert view delegate methods
+#pragma mark - Alert view delegate methods
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     exit(-1);//仅仅是退出
 }

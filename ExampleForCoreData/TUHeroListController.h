@@ -12,7 +12,7 @@
 
 enum {
     kByName,
-    KBySecretIdentity
+    kBySecretIdentity
 };
 
 @interface TUHeroListController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
