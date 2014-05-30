@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TUHeroDetailController : UITableViewController
+@property (strong, nonatomic) NSManagedObject *hero;
 
 @end

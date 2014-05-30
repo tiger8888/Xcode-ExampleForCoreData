@@ -9,7 +9,7 @@
 #import "TUHeroDetailController.h"
 
 @interface TUHeroDetailController ()
-
+@property (strong, nonatomic) NSArray *sections;
 @end
 
 @implementation TUHeroDetailController
@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL *plistURL = [[NSBundle mainBundle] URLForResource:@"HeroDetailConfiguration" withExtension:@"plist"];
+    NSDictionary *plist = [NSDictionary dictionaryWithContentsOfURL:plistURL];
+    self.sections = [plist valueForKey:@"sections"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
