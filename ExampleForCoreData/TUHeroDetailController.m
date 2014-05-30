@@ -10,6 +10,11 @@
 
 @interface TUHeroDetailController ()
 @property (strong, nonatomic) NSArray *sections;
+@property (strong, nonatomic) UIBarButtonItem *saveButton;
+- (void)save;
+@property (strong, nonatomic) UIBarButtonItem *backButton;
+@property (strong, nonatomic) UIBarButtonItem *cancelButton;
+- (void)cancel;
 @end
 
 @implementation TUHeroDetailController
@@ -34,7 +39,14 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                                                    target:self
+                                                                    action:@selector(save)];
+    self.backButton = self.navigationItem.leftBarButtonItem;
+    self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                      target:self
+                                                                      action:@selector(cancel)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +55,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    self.navigationItem.rightBarButtonItem = editing ? self.saveButton : self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = editing ? self.cancelButton : self.backButton;
+}
+
+- (void)save {
+    [self setEditing:NO animated:YES];
+}
+- (void)cancel {
+    [self setEditing:NO animated:YES];
+}
 #pragma mark - Table view data source
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,7 +100,9 @@
     cell.detailTextLabel.text = [[self.hero valueForKey:[row objectForKey:@"key"]] description];
     return cell;
 }
-
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
