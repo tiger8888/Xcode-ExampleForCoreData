@@ -20,7 +20,7 @@
 			<array>
 				<dict>
 					<key>key</key>
-					<string>secritIdentity</string>
+					<string>secretIdentity</string>
 					<key>label</key>
 					<string>Identity</string>
 				</dict>
