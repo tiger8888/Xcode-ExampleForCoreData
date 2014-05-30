@@ -8,6 +8,7 @@
 
 #import "TUHeroListController.h"
 #import "TUAppDelegate.h"
+#import "TUHeroDetailController.h"
 
 @interface TUHeroListController ()
 @property (nonatomic, strong, readonly) NSFetchedResultsController *fetchedResultsController;
@@ -56,7 +57,7 @@
 - (IBAction)addHero:(id)sender {
     NSManagedObjectContext *managedObjectContent = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContent];
+    NSManagedObject *newHero = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:managedObjectContent];
     
     NSError *error = nil;
     if (![managedObjectContent save:&error]) {
@@ -71,6 +72,8 @@
                               otherButtonTitles:nil];
         [alert show];
     }
+    
+    [self performSegueWithIdentifier:@"HeroDetailSegue" sender:newHero];
 }
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
@@ -161,6 +164,12 @@
     }   
 }
 
+#pragma mark - Table view delegate mothods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSManagedObject *selectedHero = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"HeroDetailSegue" sender:selectedHero];
+}
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -177,7 +186,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -185,8 +194,23 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([@"HeroDetailSegue" isEqualToString:segue.identifier]) {
+        if ([sender isKindOfClass:[NSManagedObject class]]) {
+            TUHeroDetailController *detailController = segue.destinationViewController;
+            detailController.hero = sender;
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Hero Detail Error",
+                                                                                      @"Hero Detail Error")
+                                                            message:NSLocalizedString(@"Error trying to show Hero detail",
+                                                                                      @"Error trying to show detail")
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Aw, Nuts",
+                                                                                      @"Aw, Nuts")
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
 }
-*/
 
 #pragma mark - FetchedResultsController Property
 - (NSFetchedResultsController *)fetchedResultsController {
