@@ -64,6 +64,14 @@
 
 - (void)save {
     [self setEditing:NO animated:YES];
+    for (TUSuperDBEditCell *cell in [self.tableView visibleCells]) {
+        [self.hero setValue:[cell value] forKey:[cell key]];
+    }
+    NSError *error;
+    if (![self.hero.managedObjectContext save:&error]) {
+        NSLog(@"Error saving: %@", [error localizedDescription]);
+    }
+    [self.tableView reloadData];
 }
 - (void)cancel {
     [self setEditing:NO animated:YES];
@@ -99,6 +107,7 @@
     NSDictionary *row = [rows objectAtIndex:rowIndex];
     cell.label.text = [row objectForKey:@"label"];
     cell.textField.text = [[self.hero valueForKey:[row objectForKey:@"key"]] description];
+    cell.key = [row objectForKey:@"key"];
     return cell;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -52,4 +52,11 @@
     [super setEditing:editing animated:animated];
     self.textField.enabled = editing;
 }
+#pragma mark - Property overrides
+- (id)value {
+    return self.textField.text;
+}
+- (void)setValue:(id)aValue {
+    self.textField.text = aValue;
+}
 @end
