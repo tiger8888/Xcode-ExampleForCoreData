@@ -7,6 +7,7 @@
 //
 
 #import "TUHeroDetailController.h"
+#import "TUHeroDetailController.h"
 
 @interface TUHeroDetailController ()
 @property (strong, nonatomic) NSArray *sections;
@@ -85,7 +86,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"HeroDetailCell";
+    static NSString *cellIdentifier = @"SuperDBEditCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];

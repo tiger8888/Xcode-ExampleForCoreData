@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC12B04C193775D0005FC984 /* TUHeroDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC12B04B193775D0005FC984 /* TUHeroDetailController.m */; };
 		DC12B04E1937803A005FC984 /* HeroDetailConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC12B04D1937803A005FC984 /* HeroDetailConfiguration.plist */; };
+		DC12B05119398A2A005FC984 /* TUSuperDBEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC12B05019398A2A005FC984 /* TUSuperDBEditCell.m */; };
 		DC24FE29193226D700526327 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC24FE28193226D700526327 /* Foundation.framework */; };
 		DC24FE2B193226D700526327 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC24FE2A193226D700526327 /* CoreGraphics.framework */; };
 		DC24FE2D193226D700526327 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC24FE2C193226D700526327 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 		DC12B04A193775D0005FC984 /* TUHeroDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUHeroDetailController.h; sourceTree = "<group>"; };
 		DC12B04B193775D0005FC984 /* TUHeroDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUHeroDetailController.m; sourceTree = "<group>"; };
 		DC12B04D1937803A005FC984 /* HeroDetailConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HeroDetailConfiguration.plist; sourceTree = "<group>"; };
+		DC12B04F19398A2A005FC984 /* TUSuperDBEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBEditCell.h; sourceTree = "<group>"; };
+		DC12B05019398A2A005FC984 /* TUSuperDBEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBEditCell.m; sourceTree = "<group>"; };
 		DC24FE25193226D700526327 /* ExampleForCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleForCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC24FE28193226D700526327 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC24FE2A193226D700526327 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,8 @@
 				DC24FE651932334700526327 /* TUHeroListController.m */,
 				DC12B04A193775D0005FC984 /* TUHeroDetailController.h */,
 				DC12B04B193775D0005FC984 /* TUHeroDetailController.m */,
+				DC12B04F19398A2A005FC984 /* TUSuperDBEditCell.h */,
+				DC12B05019398A2A005FC984 /* TUSuperDBEditCell.m */,
 				DC24FE3F193226D700526327 /* Images.xcassets */,
 				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC24FE5F1932307500526327 /* Images */,
@@ -285,6 +290,7 @@
 			files = (
 				DC24FE661932334700526327 /* TUHeroListController.m in Sources */,
 				DC24FE37193226D700526327 /* main.m in Sources */,
+				DC12B05119398A2A005FC984 /* TUSuperDBEditCell.m in Sources */,
 				DC24FE3B193226D700526327 /* TUAppDelegate.m in Sources */,
 				DC24FE3E193226D700526327 /* ExampleForCoreData.xcdatamodeld in Sources */,
 				DC12B04C193775D0005FC984 /* TUHeroDetailController.m in Sources */,
