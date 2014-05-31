@@ -7,7 +7,7 @@
 //
 
 #import "TUHeroDetailController.h"
-#import "TUHeroDetailController.h"
+#import "TUSuperDBEditCell.h"
 
 @interface TUHeroDetailController ()
 @property (strong, nonatomic) NSArray *sections;
@@ -87,9 +87,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"SuperDBEditCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    TUSuperDBEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
+        cell = [[TUSuperDBEditCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
     }
     // Configure the cell...
     NSUInteger sectionIndex = [indexPath section];
@@ -97,8 +97,8 @@
     NSDictionary *section = [self.sections objectAtIndex:sectionIndex];
     NSArray *rows = [section objectForKey:@"rows"];
     NSDictionary *row = [rows objectAtIndex:rowIndex];
-    cell.textLabel.text = [row objectForKey:@"label"];
-    cell.detailTextLabel.text = [[self.hero valueForKey:[row objectForKey:@"key"]] description];
+    cell.label.text = [row objectForKey:@"label"];
+    cell.textField.text = [[self.hero valueForKey:[row objectForKey:@"key"]] description];
     return cell;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
