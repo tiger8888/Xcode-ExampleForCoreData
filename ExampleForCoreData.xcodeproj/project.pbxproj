@@ -31,6 +31,7 @@
 		DC24FE661932334700526327 /* TUHeroListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC24FE651932334700526327 /* TUHeroListController.m */; };
 		DC7C6D80193A165000B6166D /* TUSuperDBDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */; };
 		DC7C6D83193AD78B00B6166D /* TUSuperDBPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */; };
+		DC7C6D87193B48FC00B6166D /* Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D86193B48FC00B6166D /* Hero.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBPickerCell.h; sourceTree = "<group>"; };
 		DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBPickerCell.m; sourceTree = "<group>"; };
 		DC7C6D84193B35D600B6166D /* ExampleForCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ExampleForCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		DC7C6D85193B48FC00B6166D /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
+		DC7C6D86193B48FC00B6166D /* Hero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hero.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC24FE5F1932307500526327 /* Images */,
 				DC24FE31193226D700526327 /* Supporting Files */,
+				DC7C6D85193B48FC00B6166D /* Hero.h */,
+				DC7C6D86193B48FC00B6166D /* Hero.m */,
 			);
 			path = ExampleForCoreData;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				DC24FE37193226D700526327 /* main.m in Sources */,
 				DC7C6D80193A165000B6166D /* TUSuperDBDateCell.m in Sources */,
 				DC12B05119398A2A005FC984 /* TUSuperDBEditCell.m in Sources */,
+				DC7C6D87193B48FC00B6166D /* Hero.m in Sources */,
 				DC7C6D83193AD78B00B6166D /* TUSuperDBPickerCell.m in Sources */,
 				DC24FE3B193226D700526327 /* TUAppDelegate.m in Sources */,
 				DC24FE3E193226D700526327 /* ExampleForCoreData.xcdatamodeld in Sources */,
