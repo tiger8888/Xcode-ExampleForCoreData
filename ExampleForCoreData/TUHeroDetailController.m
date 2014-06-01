@@ -94,20 +94,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"SuperDBEditCell";
-    TUSuperDBEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (nil == cell) {
-        cell = [[TUSuperDBEditCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
-    }
-    // Configure the cell...
     NSUInteger sectionIndex = [indexPath section];
     NSUInteger rowIndex = [indexPath row];
     NSDictionary *section = [self.sections objectAtIndex:sectionIndex];
     NSArray *rows = [section objectForKey:@"rows"];
     NSDictionary *row = [rows objectAtIndex:rowIndex];
-    cell.label.text = [row objectForKey:@"label"];
-    cell.textField.text = [[self.hero valueForKey:[row objectForKey:@"key"]] description];
+    NSString *cellClassName = [row objectForKey:@"class"];
+    TUSuperDBEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellClassName];
+    if (nil == cell) {
+        Class cellClass = NSClassFromString(cellClassName);
+        cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellClassName];
+    }
+    // Configure the cell...
     cell.key = [row objectForKey:@"key"];
+    cell.value = [self.hero valueForKey:[row objectForKey:@"key"]];
+    cell.label.text = [row objectForKey:@"label"];
     return cell;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
