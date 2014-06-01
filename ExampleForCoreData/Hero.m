@@ -24,4 +24,21 @@
     [super awakeFromInsert];
 }
 
+- (BOOL)validateBirthdate:(id *)ioValue error:(NSError **)outError {
+    NSDate *date = *ioValue;
+    if ([date compare:[NSDate date]] == NSOrderedDescending) {
+        if (outError != NULL) {
+            NSString *errorStr = NSLocalizedString(@"Birthdate cannot be in the future",
+                                                   @"Birthdate cannot be in the future");
+            NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:errorStr
+                                                                     forKey:NSLocalizedDescriptionKey];
+            NSError *error = [[NSError alloc] initWithDomain:kHeroValidationDomain
+                                                        code:kHeroValidationBirthdateCode
+                                                    userInfo:userInfoDict];
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
+}
 @end
