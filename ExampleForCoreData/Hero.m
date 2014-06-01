@@ -61,4 +61,13 @@
 - (BOOL)validateForUpdate:(NSError *__autoreleasing *)outError {
     return [self validateNameOrSecretIdentity:outError];
 }
+- (NSNumber *)age {
+    if (self.birthdate == nil) {
+        return nil;
+    }
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSYearCalendarUnit fromDate:self.birthdate toDate:[NSDate date] options:0];
+    NSInteger years = [components year];
+    return [NSNumber numberWithInteger:years];
+}
 @end
