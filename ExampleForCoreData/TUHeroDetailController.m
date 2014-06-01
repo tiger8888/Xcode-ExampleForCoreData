@@ -106,6 +106,11 @@
         cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellClassName];
     }
     // Configure the cell...
+    NSArray *values = [row valueForKey:@"values"];
+    if (nil != values) {
+        //TODO clean this up - ugh
+        [cell performSelector:@selector(setValues:) withObject:values];
+    }
     cell.key = [row objectForKey:@"key"];
     cell.value = [self.hero valueForKey:[row objectForKey:@"key"]];
     cell.label.text = [row objectForKey:@"label"];

@@ -8,6 +8,7 @@
 
 #import "TUSuperDBEditCell.h"
 
-@interface TUSuperDBPickerCell : TUSuperDBEditCell
+@interface TUSuperDBPickerCell : TUSuperDBEditCell<UIPickerViewDataSource, UIPickerViewDelegate>
+@property (strong, nonatomic) NSArray *values;
 
 @end
