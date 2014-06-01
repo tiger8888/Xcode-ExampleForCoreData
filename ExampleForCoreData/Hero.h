@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define kHeroValidationDomain @"cn.edu.tju.ExampleForCoreData.HeroValidationDomain"
+#define kHeroValidationBirthdateCode 1000
+#define kHeroValidationNameOrSecretIdentityCode 1001
 
 @interface Hero : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * age;
+@property (nonatomic, retain, readonly) NSNumber * age;
 @property (nonatomic, retain) NSDate * birthdate;
-@property (nonatomic, retain) id favoriteColor;
+@property (nonatomic, retain) UIColor * favoriteColor;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * secretIdentity;
 @property (nonatomic, retain) NSString * sex;
