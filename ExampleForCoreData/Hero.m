@@ -18,4 +18,10 @@
 @dynamic secretIdentity;
 @dynamic sex;
 
+- (void)awakeFromInsert {
+    self.favoriteColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+//    self.birthdate = [NSdate date];
+    [super awakeFromInsert];
+}
+
 @end
