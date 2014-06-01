@@ -41,4 +41,24 @@
     }
     return YES;
 }
+- (BOOL)validateNameOrSecretIdentity:(NSError **)outError {
+    if ( (0 == [self.name length]) && (0 == [self.secretIdentity length])) {
+        if (outError != NULL) {
+            NSString *errorString = NSLocalizedString(@"Must provide name or secret identity.",
+                                                      @"Must provide name or secret identity.");
+            NSDictionary *userInfoDict = [NSDictionary dictionaryWithObject:errorString
+                                                                     forKey:NSLocalizedDescriptionKey];
+            NSError *error = [[NSError alloc] initWithDomain:kHeroValidationDomain code:kHeroValidationNameOrSecretIdentityCode userInfo:userInfoDict];
+            *outError = error;
+        }
+        return NO;
+    }
+    return YES;
+}
+- (BOOL)validateForInsert:(NSError *__autoreleasing *)outError {
+    return [self validateNameOrSecretIdentity:outError];
+}
+- (BOOL)validateForUpdate:(NSError *__autoreleasing *)outError {
+    return [self validateNameOrSecretIdentity:outError];
+}
 @end

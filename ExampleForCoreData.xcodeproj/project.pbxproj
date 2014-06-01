@@ -156,9 +156,9 @@
 				DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */,
 				DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */,
 				DC24FE3F193226D700526327 /* Images.xcassets */,
-				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC24FE5F1932307500526327 /* Images */,
 				DC24FE31193226D700526327 /* Supporting Files */,
+				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC7C6D85193B48FC00B6166D /* Hero.h */,
 				DC7C6D86193B48FC00B6166D /* Hero.m */,
 			);
