@@ -30,6 +30,7 @@
 		DC24FE631932309A00526327 /* secret_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC24FE611932309A00526327 /* secret_icon.png */; };
 		DC24FE661932334700526327 /* TUHeroListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC24FE651932334700526327 /* TUHeroListController.m */; };
 		DC7C6D80193A165000B6166D /* TUSuperDBDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */; };
+		DC7C6D83193AD78B00B6166D /* TUSuperDBPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		DC24FE651932334700526327 /* TUHeroListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUHeroListController.m; sourceTree = "<group>"; };
 		DC7C6D7E193A165000B6166D /* TUSuperDBDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBDateCell.h; sourceTree = "<group>"; };
 		DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBDateCell.m; sourceTree = "<group>"; };
+		DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBPickerCell.h; sourceTree = "<group>"; };
+		DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBPickerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				DC12B05019398A2A005FC984 /* TUSuperDBEditCell.m */,
 				DC7C6D7E193A165000B6166D /* TUSuperDBDateCell.h */,
 				DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */,
+				DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */,
+				DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */,
 				DC24FE3F193226D700526327 /* Images.xcassets */,
 				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC24FE5F1932307500526327 /* Images */,
@@ -297,6 +302,7 @@
 				DC24FE37193226D700526327 /* main.m in Sources */,
 				DC7C6D80193A165000B6166D /* TUSuperDBDateCell.m in Sources */,
 				DC12B05119398A2A005FC984 /* TUSuperDBEditCell.m in Sources */,
+				DC7C6D83193AD78B00B6166D /* TUSuperDBPickerCell.m in Sources */,
 				DC24FE3B193226D700526327 /* TUAppDelegate.m in Sources */,
 				DC24FE3E193226D700526327 /* ExampleForCoreData.xcdatamodeld in Sources */,
 				DC12B04C193775D0005FC984 /* TUHeroDetailController.m in Sources */,
