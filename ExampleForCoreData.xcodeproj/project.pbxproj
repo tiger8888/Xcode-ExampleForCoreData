@@ -76,6 +76,7 @@
 		DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBDateCell.m; sourceTree = "<group>"; };
 		DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBPickerCell.h; sourceTree = "<group>"; };
 		DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBPickerCell.m; sourceTree = "<group>"; };
+		DC7C6D84193B35D600B6166D /* ExampleForCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ExampleForCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +522,7 @@
 		DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DC7C6D84193B35D600B6166D /* ExampleForCoreData 2.xcdatamodel */,
 				DC24FE3D193226D700526327 /* ExampleForCoreData.xcdatamodel */,
 			);
 			currentVersion = DC24FE3D193226D700526327 /* ExampleForCoreData.xcdatamodel */;
