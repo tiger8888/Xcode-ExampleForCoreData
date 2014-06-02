@@ -35,6 +35,10 @@
     [super setEditing:editing animated:animated];
     self.textField.enabled = editing;
 }
+#pragma mark - SuperDBCell Overrides
+- (BOOL)isEditable {
+    return YES;
+}
 #pragma mark - Instance methods
 - (IBAction)validate {
     id val = self.value;

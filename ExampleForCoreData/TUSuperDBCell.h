@@ -18,4 +18,6 @@
 
 @property (strong, nonatomic) NSManagedObject *hero;
 
+- (BOOL)isEditable;
+
 @end

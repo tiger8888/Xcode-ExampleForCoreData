@@ -37,6 +37,11 @@
     return self;
 }
 
+#pragma mark - Instence Methods
+- (BOOL)isEditable {
+    return NO;
+}
+
 #pragma mark - Property overrides
 - (id)value {
     return self.textField.text;

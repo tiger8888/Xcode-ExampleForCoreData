@@ -65,7 +65,9 @@
 - (void)save {
     [self setEditing:NO animated:YES];
     for (TUSuperDBEditCell *cell in [self.tableView visibleCells]) {
-        [self.hero setValue:[cell value] forKey:[cell key]];
+        if ([cell isEditable]) {
+            [self.hero setValue:[cell value] forKey:[cell key]];
+        }
     }
     NSError *error;
     if (![self.hero.managedObjectContext save:&error]) {

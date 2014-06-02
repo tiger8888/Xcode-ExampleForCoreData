@@ -40,7 +40,7 @@
 					<key>key</key>
 					<string>age</string>
 					<key>class</key>
-					<string>TUSuperDBEditCell</string>
+					<string>TUSuperDBCell</string>
 					<key>label</key>
 					<string>Age</string>
 				</dict>
