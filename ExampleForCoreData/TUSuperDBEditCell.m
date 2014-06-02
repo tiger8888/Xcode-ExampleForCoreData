@@ -32,6 +32,7 @@
         self.textField.enabled = NO;
         self.textField.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
         self.textField.text = @"Title";
+        self.textField.delegate = self;
         [self.contentView addSubview:self.textField];
     }
     return self;
@@ -58,5 +59,41 @@
 }
 - (void)setValue:(id)aValue {
     self.textField.text = aValue;
+}
+#pragma mark - Instance methods
+- (IBAction)validate {
+    id val = self.value;
+    NSError *error;
+    if (![self.hero validateValue:&val forKey:self.key error:&error]) {
+        NSString *message = nil;
+        if ([[error domain] isEqualToString:@"NSCocoaErrorDomain"]) {
+            NSDictionary *userInfo = [error userInfo];
+            message = [NSString stringWithFormat:NSLocalizedString(@"Validation error on: %@ \rFailure Reason: %@",
+                                                                   @"Validation error on: %@, Failure Reason: %@"),
+                       [userInfo valueForKey:@"NSValidationErrorKey"],
+                       [error localizedFailureReason]];
+        } else {
+            message = [error localizedDescription];
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Validation Error",
+                                                                                  @"Validation Error")
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                                              otherButtonTitles:NSLocalizedString(@"Fix", @"Fix"), nil];
+        [alert show];
+    }
+}
+#pragma mark - Alert view delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [self setValue:[self.hero valueForKey:self.key]];
+    } else {
+        [self.textField becomeFirstResponder];
+    }
+}
+#pragma mark UITextFieldDelegate methods
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self validate];
 }
 @end
