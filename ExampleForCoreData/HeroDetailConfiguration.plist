@@ -38,6 +38,14 @@
 				</dict>
 				<dict>
 					<key>key</key>
+					<string>age</string>
+					<key>class</key>
+					<string>TUSuperDBEditCell</string>
+					<key>label</key>
+					<string>Age</string>
+				</dict>
+				<dict>
+					<key>key</key>
 					<string>sex</string>
 					<key>class</key>
 					<string>TUSuperDBPickerCell</string>
@@ -48,6 +56,14 @@
 						<string>Male</string>
 						<string>Female</string>
 					</array>
+				</dict>
+				<dict>
+					<key>key</key>
+					<string>favoriteColor</string>
+					<key>class</key>
+					<string>TUSuperDBEditCell</string>
+					<key>label</key>
+					<string>Color</string>
 				</dict>
 			</array>
 		</dict>

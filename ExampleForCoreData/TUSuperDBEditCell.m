@@ -58,7 +58,11 @@
     return self.textField.text;
 }
 - (void)setValue:(id)aValue {
-    self.textField.text = aValue;
+    if ([aValue isKindOfClass:[NSString class]]) {
+        self.textField.text = aValue;
+    } else {
+        self.textField.text = [aValue description];
+    }
 }
 #pragma mark - Instance methods
 - (IBAction)validate {
