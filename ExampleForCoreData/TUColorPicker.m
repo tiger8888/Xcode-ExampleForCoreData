@@ -7,6 +7,9 @@
 //
 
 #import "TUColorPicker.h"
+#import <QuartzCore/CAGradientLayer.h>
+#define kTopBackgroundColor [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0]
+#define kBottomBackgroundColor [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.0]
 
 @interface TUColorPicker ()
 @property (strong, nonatomic) UISlider *redSlider;
@@ -77,13 +80,16 @@
     label.text = text;
     return label;
 }
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(__bridge id)[kTopBackgroundColor CGColor], (__bridge id)[kBottomBackgroundColor CGColor], nil];
+    [self.layer insertSublayer:gradient atIndex:0];
 }
-*/
 
 @end
