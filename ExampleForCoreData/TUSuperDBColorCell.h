@@ -7,7 +7,12 @@
 //
 
 #import "TUSuperDBEditCell.h"
+#import "TUColorPicker.h"
 
 @interface TUSuperDBColorCell : TUSuperDBEditCell
+
+@property (strong, nonatomic) TUColorPicker *colorPicker;
+- (void)colorPickerChanged:(id)sender;
+- (NSAttributedString *)attributedColorString;
 
 @end
