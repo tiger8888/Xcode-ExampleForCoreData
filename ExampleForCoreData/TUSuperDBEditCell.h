@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TUSuperDBEditCell : UITableViewCell<UITextFieldDelegate, UIAlertViewDelegate>
+#import "TUSuperDBCell.h"
+
+@interface TUSuperDBEditCell : TUSuperDBCell<UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) UITextField *textField;
