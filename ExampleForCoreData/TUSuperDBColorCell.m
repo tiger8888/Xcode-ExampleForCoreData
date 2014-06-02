@@ -13,6 +13,8 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.textField.clearButtonMode = UITextFieldViewModeNever;
+        
         self.colorPicker = [[TUColorPicker alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
         [self.colorPicker addTarget:self action:@selector(colorPickerChanged:) forControlEvents:UIControlEventValueChanged];
         self.textField.inputView = self.colorPicker;
