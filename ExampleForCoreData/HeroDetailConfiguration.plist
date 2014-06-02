@@ -61,7 +61,7 @@
 					<key>key</key>
 					<string>favoriteColor</string>
 					<key>class</key>
-					<string>TUSuperDBEditCell</string>
+					<string>TUSuperDBColorCell</string>
 					<key>label</key>
 					<string>Color</string>
 				</dict>
