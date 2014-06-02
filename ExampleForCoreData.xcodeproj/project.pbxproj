@@ -31,6 +31,7 @@
 		DC24FE661932334700526327 /* TUHeroListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC24FE651932334700526327 /* TUHeroListController.m */; };
 		DC7721C1193C618F0036D4DC /* TUSuperDBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7721C0193C618F0036D4DC /* TUSuperDBCell.m */; };
 		DC7721C4193C7AC10036D4DC /* TUColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7721C3193C7AC10036D4DC /* TUColorPicker.m */; };
+		DC7721C7193C8C450036D4DC /* TUSuperDBColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7721C6193C8C450036D4DC /* TUSuperDBColorCell.m */; };
 		DC7C6D80193A165000B6166D /* TUSuperDBDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */; };
 		DC7C6D83193AD78B00B6166D /* TUSuperDBPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */; };
 		DC7C6D87193B48FC00B6166D /* Hero.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C6D86193B48FC00B6166D /* Hero.m */; };
@@ -79,6 +80,8 @@
 		DC7721C0193C618F0036D4DC /* TUSuperDBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBCell.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		DC7721C2193C7AC10036D4DC /* TUColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUColorPicker.h; sourceTree = "<group>"; };
 		DC7721C3193C7AC10036D4DC /* TUColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUColorPicker.m; sourceTree = "<group>"; };
+		DC7721C5193C8C450036D4DC /* TUSuperDBColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBColorCell.h; sourceTree = "<group>"; };
+		DC7721C6193C8C450036D4DC /* TUSuperDBColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBColorCell.m; sourceTree = "<group>"; };
 		DC7C6D7E193A165000B6166D /* TUSuperDBDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBDateCell.h; sourceTree = "<group>"; };
 		DC7C6D7F193A165000B6166D /* TUSuperDBDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUSuperDBDateCell.m; sourceTree = "<group>"; };
 		DC7C6D81193AD78B00B6166D /* TUSuperDBPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUSuperDBPickerCell.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				DC7C6D82193AD78B00B6166D /* TUSuperDBPickerCell.m */,
 				DC7721C2193C7AC10036D4DC /* TUColorPicker.h */,
 				DC7721C3193C7AC10036D4DC /* TUColorPicker.m */,
+				DC7721C5193C8C450036D4DC /* TUSuperDBColorCell.h */,
+				DC7721C6193C8C450036D4DC /* TUSuperDBColorCell.m */,
 				DC24FE3C193226D700526327 /* ExampleForCoreData.xcdatamodeld */,
 				DC7C6D85193B48FC00B6166D /* Hero.h */,
 				DC7C6D86193B48FC00B6166D /* Hero.m */,
@@ -316,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7721C7193C8C450036D4DC /* TUSuperDBColorCell.m in Sources */,
 				DC24FE661932334700526327 /* TUHeroListController.m in Sources */,
 				DC7721C4193C7AC10036D4DC /* TUColorPicker.m in Sources */,
 				DC24FE37193226D700526327 /* main.m in Sources */,
