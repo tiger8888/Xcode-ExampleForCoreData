@@ -10,4 +10,6 @@
 
 @interface TUColorPicker : UIControl
 
+@property (strong, nonatomic) UIColor *color;
+
 @end
