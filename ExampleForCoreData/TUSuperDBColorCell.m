@@ -13,7 +13,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.colorPicker = [[TUColorPicker alloc] initWithFrame:CGRectZero];
+        self.colorPicker = [[TUColorPicker alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
         [self.colorPicker addTarget:self action:@selector(colorPickerChanged:) forControlEvents:UIControlEventValueChanged];
         self.textField.inputView = self.colorPicker;
     }
@@ -27,6 +27,10 @@
         // Initialization code
     }
     return self;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    self.frame = newSuperview.bounds;
 }
 
 #pragma mark - SuperDBEditCell Overrides
