@@ -8,7 +8,14 @@
 
 #import "TUSuperDBEditCell.h"
 
+static NSDictionary *__CoreDataErrors;
+
 @implementation TUSuperDBEditCell
+
++ (void)initialize {
+    NSURL *plistURL = [[NSBundle mainBundle] URLForResource:@"CoreDataErrors" withExtension:@"plist"];
+    __CoreDataErrors = [NSDictionary dictionaryWithContentsOfURL:plistURL];
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -46,11 +53,14 @@
     if (![self.hero validateValue:&val forKey:self.key error:&error]) {
         NSString *message = nil;
         if ([[error domain] isEqualToString:@"NSCocoaErrorDomain"]) {
+            NSString *errorCodeStr = [NSString stringWithFormat:@"%d",[error code]];
+            NSLog(@"%d",[error code]);
+            NSString *errorMessage = [__CoreDataErrors valueForKey:errorCodeStr];
             NSDictionary *userInfo = [error userInfo];
             message = [NSString stringWithFormat:NSLocalizedString(@"Validation error on: %@ \rFailure Reason: %@",
                                                                    @"Validation error on: %@, Failure Reason: %@"),
                        [userInfo valueForKey:@"NSValidationErrorKey"],
-                       [error localizedFailureReason]];
+                       errorMessage];
         } else {
             message = [error localizedDescription];
         }
